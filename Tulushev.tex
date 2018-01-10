@@ -1,140 +1,147 @@
+% Settings
 \documentclass[12pt,a4paper,sans]{moderncv}
 \moderncvtheme[red]{classic}
-\usepackage[scale=0.75]{geometry}
 \usepackage[utf8]{inputenc}
-
+\usepackage[scale=0.9]{geometry}
+\recomputelengths
+\moderncvicons{awesome}
+\pagenumbering{arabic}
+\usepackage{lastpage}
+\rfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of \pageref{LastPage}}}
+% Tune CV Entry command
 \renewcommand*{\cventry}[7][.25em]{%
   \cvitem[#1]{#2}{%
     {\bfseries#3}%
     \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
     \ifthenelse{\equal{#5}{}}{}{, #5}%
     \ifthenelse{\equal{#6}{}}{}{, #6}%
-%    .\strut I changed this line (with dot)
-    \strut % Into this one (without dot)
+    \strut%
     \ifx&#7&%
-      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
-
+      \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}%
+% Personal Information
 \firstname{Eugene}
 \familyname{Tulushev}
 \title{iOS Developer}
-\address{}{Saint Petersburg}
-\mobile{+7~(921)~772~02~82}
-\email{eugene@tulushev.com}
-\homepage{github.com/Tulushev}  
-
+\address{}{Zaporizhia}
+\mobile{+380~(68)~419~17~15}
+\email{eugene@tulushev.com} 
+% Main document
 \begin{document}
-\makecvtitle
-
+\maketitle
+% Education section
 \section{Education}
-
-\cventry{2011}{Specialist in Software Engineering}{Zaporizhzhya State Engineering Academy}{Ukraine}{}{Took evening postgraduate education degree in parallel with following:}
-
-\cventry{2011}{Specialist in Electronics}{Zaporizhzhya State Engineering Academy}{Ukraine}{}{Took 1st and 2nd places in different categories in Ukrainian XI open student olympiad of application programming and microprocessor systems in Kyiv}
-
+\cventry{2011}{Masters in Software Engineering}{Zaporizhzhya State Engineering Academy}{Ukraine}{}{}
+\cventry{2011}{Masters in Electronics}{Zaporizhzhya State Engineering Academy}{Ukraine}{}{}
+% Skills section
 \section{Skills}
 
-\cvitem{Core}{C, Objective-C, OOP, iOS SDK 4.3 – 7.x, Xcode, Instruments, ARC, GCD, KVC, KVO, State Restoration, Localization, Remote Notifications, Gesture Recognizers, Multiple Display Programming, Blocks, Coding guidelines, HIG}
-\cvitem{Frameworks}{Multipeer Connectivity, CoreLocation, MapKit, MessageUI, AddressBook, Cocoa Scripting Bridge}
-\cvitem{Testing}{TDD, BDD, CI, Bots, UIAutomation, Kiwi}
-\cvitem{Debugging}{CLANG Debugger, Static Analyzer, Instruments, Breakpoints (Exception, Symbolic), PonyDebugger}
-\cvitem{Distribution}{OTA ad-hoc publishing, TestFlight, Provisioning Portal, iTunes Connect}
-\cvitem{Interface}{UIKit Dynamics, TextKit, CoreAnimation, CoreGraphics, UIAppearance, Storyboards, Autolayout}
-\cvitem{Tools}{git, SVN, CocoaPods, AFNetwrorking, RestKit, ReactiveCocoa, Injection for Xcode, Megaplan, Basecamp, Jira, ActiveCollab}
-\cvitem{Network}{HTTP/S, JSON, REST API Design, OAuth, XML}
-\cvitem{Games}{Cocos2D for iPhone, Kobold2D, SpriteKit, Particle System}
-\cvitem{Patterns}{MVC, Two-Stage Creation, Category, Anonymous Type, Delayed Perform, Accessors, Archiving \& Unarchiving, Copying, Singleton, Delegates, Notifications, Hierarchies, Class Clusters, Bundles, Outlets Targets Actions,  Facade, Managers, Controllers}
+\cvitem{Core}{Objective-C, Swift, OOP, iOS SDK, Xcode, Instruments, ARC, GCD, KVC, KVO, State Restoration, Localization, Remote Notifications, Gesture Recognizers, Multiple Display Programming}
+\cvitem{Interface}{Storyboards, Autolayout, CoreGraphics, CoreAnimation, UIKit Dynamics, TextKit, UIAppearance}
+\cvitem{Frameworks}{Multipeer Connectivity, CoreLocation, CoreMotion, ARKit, MapKit, MessageUI, AddressBook}
+\cvitem{Distribution}{App Store, TestFlight, Provisioning Portal, iTunes Connect}
+\cvitem{Testing}{TDD, BDD, CI, Bots, UIAutomation}
+\cvitem{Debugging}{CLANG Debugger, Static Analyzer, Instruments, Breakpoints (Exception, Symbolic), Logging}
+\cvitem{Tools}{git, CocoaPods, fastlane, Injection}
+\cvitem{Network}{REST API Design, HTTP/S, JSON, OAuth}
+\cvitem{Architecture}{MVC, MVVM, VIPER}
 
 \section{Experience}
-
 \newcommand\Colorhref[3][cyan]{\href{#2}{\small\color{#1}#3}}
+% Freelance
+\cventry{10.14--Present}{iOS Developer}{Freelance}{Zaporizhia}{Ukraine}{iOS Application Development for companies and private clients\newline
+Notable Projects:
+\begin{itemize}
+     \item \Colorhref[red]{https://privetapp.ru/index_en.html}{Privet Augmented Reality \faExternalLink} iOS 7+\newline
+    AR feature in online dating app
+        \begin{itemize}
+            \item Developed an app module and custom AR engine, showing augmented reality of users online
+            \item Designed REST API\newline
+        Used: CoreMotion, GPUImage, Mantle, AFNetworking, Bolts
+        \end{itemize}
+    \item \Colorhref[red]{http://wameapp.com}{WAME \faExternalLink} iOS 9+\newline An app for searching convenient places for watching sports broadcasts 
+        \begin{itemize}
+            \item Developed an app from the ground up and published it in the App Store
+            \item Designed REST API\newline
+        Used: CoreLocation, MapKit, Apiary, Swagger, Facebook SDK, VK SDK, Mantle
+        \end{itemize} 
+\end{itemize}
+}{}
+% e-Legion
+\cventry{03.14--10.14}{iOS Developer}{\Colorhref[red]{http://www.e-legion.ru}{e-Legion \faExternalLink}}{Saint Petersburg}{Russian Federation}{iOS Application Development for large companies and private clients\newline
+Notable projects:
+\begin{itemize}
+    \item {Smarthouse Art} iOS 7+\newline A smart house integrated iPhone app using iBeacons to detect nearby paintings, showing various related information through beautifully animated UI
+        \begin{itemize}
+            \item Developed an app from scratch and integrated it in a smart house\newline
+        Used: iBeacons, CollectionView custom layout transition animations
+        \end{itemize} 
+    \item \Colorhref[red]{https://itunes.apple.com/ru/app/rconnectsmart-application/id557857165}{RaiffeisenBank Corporate \faExternalLink} iOS 8+
+        \begin{itemize}
+            \item Developed a few core screens
+        \end{itemize}
+\end{itemize}
+}{}
 % 2Nova Interactive
-\cventry{03.13--present}{iOS Developer}{\Colorhref[red]{http://2nova.ru}{2Nova Interactive}}{Saint Petersburg}{Russian Federation}{iOS Product Development for large brands and startups\newline\newline
+\cventry{03.13--03.14}{iOS Developer}{\Colorhref[red]{http://2nova.ru}{2Nova Interactive \faExternalLink}}{Saint Petersburg}{Russian Federation}{iOS Application Development for large brands and startups\newline
 Initiatives:
 \begin{itemize}
-    \item Declared guidelines and specifications for designers who provide graphics for iOS platform
+    \item Established guidelines and specifications for designers who provide graphics for iOS developers
     \item Introduced TDD, BDD, CI into development process
-    \item Enforced Objective-C coding conventions\newline
 \end{itemize}
-Projects:
+Notable projects:
 \begin{itemize}
     % Megafon
-    \item  \Colorhref[red]{http://faces2014.megafon.ru}{Megafon Faces of Olympiad Sochi 2014} (ongoing) iOS 7.0 — 7.1.x
+    \item  \Colorhref[red]{https://www.youtube.com/watch?v=iCLHUciPaLs}{Megafon Faces of Olympiad Sochi 2014 \faExternalLink} iOS 7+\newline 8 iPads connected through Multipeer Connectivity framework, 4 act as receivers for scaning RF cards and displaying a name, which you can swipe to 4 projected sceens. Screens are controlled with Multiple Display Programming by another 4 iPads that fill names into TextKit generated sportsman faces with UIKit Dynamics animations (1:30 in the linked video)
     \begin{itemize}
-        \item Full project development of 6 interconnected iPad transmitter-receiver system for Sochi 2014 installation\newline\newline
-        Learned: TextKit, Multipeer Connectivity, Multiple Display Programming, UIKit Dynamics, Bots, Cocoa Scripting Bridge, AFNetworking 2.0\newline
-    \end{itemize}
-    % Puntr
-    \item \Colorhref[red]{https://itunes.apple.com/ru/app/puntr/id778602128}{Puntr} iOS 6.0 – 7.0
-    \begin{itemize}
-        \item Full project development from ground up
-        \item Designed REST API for client-server communication\newline\newline
-        Learned: REST API Design, TDD, Kiwi, BDD, UI Automation, State Restoration, KVC, KVO, ReactiveCocoa, CI, CocoaSecurity, GPUImage, Uncrustify, Localization, CGGeometry\newline
+        \item Developed an app from the ground up including special console for administrators\newline
+        Used: TextKit, Multipeer Connectivity, Multiple Display Programming, UIKit Dynamics, Bots, Cocoa Scripting Bridge, AFNetworking
     \end{itemize}
     % Giftboard
-    \item \Colorhref[red]{https://itunes.apple.com/ru/app/giftboard/id653508563}{Giftboard} iOS 6.0
+    \item \Colorhref[red]{https://www.rbc.ru/newspaper/2014/03/21/56bf226d9a7947299f72d3a3}{Giftboard \faExternalLink} iOS 6+\newline Giving and receiving presents made easy
     \begin{itemize}
-        \item Full project development from ground up through 3 complete rewrites and iterations of core app idea\newline\newline
-        Learned: AddressBook, CoreGraphics, CoreAnimation, CollectionView, UIAppearance, Push \& Local Notifications, Blocks, JSON, AFNetworking, RestKit, PonyDebugger\newline
+        \item Developed an app from the ground up and published it in the App Store\newline
+        Used: AddressBook, CoreGraphics, CoreAnimation, CollectionView, UIAppearance, Push \& Local Notifications, Blocks, JSON, AFNetworking, RestKit, PonyDebugger
+    \end{itemize}
+    % Puntr
+    \item \Colorhref[red]{https://itunes.apple.com/ru/app/puntr/id778602128}{Puntr \faExternalLink} iOS 6+\newline App for making bets on sports events
+    \begin{itemize}
+        \item Developed an app from the ground up and published it in the App Store
+        \item Designed REST API\newline
+        Used: TDD, Kiwi, BDD, UI Automation, State Restoration, KVC, KVO, ReactiveCocoa, CI, CocoaSecurity, GPUImage
     \end{itemize}
 \end{itemize}}{}
 % Prima Development Group
-\cventry{07.12--01.13}{iOS Game Developer}{\Colorhref[red]{http://www.linkedin.com/company/prima-development-group}{Prima Development Group}}{Zaporizhzhya}{Ukraine}{iOS 2D game development for foreign clients\newline\newline
+\cventry{07.12--01.13}{iOS Game Developer}{\Colorhref[red]{http://www.linkedin.com/company/prima-development-group}{Prima Development Group \faExternalLink}}{Zaporizhzhya}{Ukraine}{iOS 2D game development for foreign clients\newline
 Initiatives:
 \begin{itemize}
 \item Created unified team coding guidelines for iOS
 \item Developed tools to simplify development process
-\item Introduced the practice of dependency management with CocoaPods\newline
-\end{itemize}}{}
-\cventry{}{}{}{}{}{
-Projects:
+\item Introduced the practice of dependency management with CocoaPods
+\end{itemize}
+Notable projects:
 \begin{itemize}
     % House that Jack built
-    \item \Colorhref[red]{https://itunes.apple.com/us/app/house-that-jack-built-multilingual/id571346452}{House that Jack built} iOS 4.3 – 6.0
+    \item \Colorhref[red]{https://www.youtube.com/watch?v=Iy4AZ89Se1w}{House that Jack built \faExternalLink} iOS 4.3+\newline Interactive children's book for iPad
         \begin{itemize}
             \item Created interactive (touch gestures) pages with animation
-            \item Developed interactive book engine
-            \item Created tools for pixel perfect placement, connections and animations of client graphics
-            \item Streamlined development process from client graphics to working demo\newline\newline
-            Learned: CocoaPods, Gesture Recognizers, Injection for Xcode, Particle system\newline
-        \end{itemize}
-    % Lilypad Leap
-    \item 2D parallax scrolling platformer for iPhone \& iPad iOS 5.0 – 6.0
-        \begin{itemize}
-            \item Involved in full product life cycle from design to development\newline\newline
-            Learned: Kobold2D, OTA ad-hoc publishing, TestFlight, Finite-state machines, Accelerometer\newline
+            \item Developed interactive book engine\newline
+            Used: Cocos2D, Kobold2D, CocoaPods, Gesture Recognizers, Injection for Xcode, Particle systems
         \end{itemize}
     % Moon Skater
-    \item \Colorhref[red]{https://www.facebook.com/moonskatergame}{Moon Skater} iOS 4.3 – 6.0
+    \item \Colorhref[red]{https://www.facebook.com/moonskatergame}{Moon Skater \faExternalLink} iOS 4.3+\newline iOS 2D parallax platformer
         \begin{itemize}
-            \item Developed main screen of in-game item shop
-            \item Developed relative sprite positioning system
-            \item Managed publishing in AppStore\newline\newline
-            Learned: Cocos2D for iPhone, SVN, iTunesConnect\newline
-        \end{itemize}
-    % VPLAN
-    \item Cross-platform account planner iOS 4.3 – 6.0
-        \begin{itemize}
-            \item Cleaned and upgraded the project from ground up
-            \item Maintained the project for web team
-            \item Updated and patched Cordova plugins\newline\newline
-            Learned: Cordova\newline
+            \item Developed in-game item shop
+            \item Published in App Store\newline
+            Used: Cocos2D
         \end{itemize}
 \end{itemize}}{}
 % Dev iQ
-\cventry{05.12--07.12}{iOS Developer}{\Colorhref[red]{http://dev-iq.ru}{Dev iQ}}{Kyiv}{Ukraine}{iOS Development for domestic clients\newline\newline
-Projects:
-\begin{itemize}
-    \item In-house application \Colorhref[red]{https://premierholiday.com/ru}{Premier Holiday Club} for iPad iOS 5.0
-        \begin{itemize}
-            \item Designed and programmed new Tab Bar section
-            \item Tested and debugged for performance optimisation\newline\newline
-            Learned: git, Instruments, Megaplan, Jira
-        \end{itemize}
-\end{itemize}}{}
+\cventry{05.12--07.12}{iOS Developer}{\Colorhref[red]{https://qoderoom.com}{Dev iQ \faExternalLink}}{Kyiv}{Ukraine}{iOS Development for domestic clients}{}
 
 \section{Languages}
 
 \cvitemwithcomment{English}{Professional working proficiency}{}
 \cvitemwithcomment{Russian}{Native or bilingual proficiency}{}
+\cvitemwithcomment{Ukrainian}{Native or bilingual proficiency}{}
 
 \end{document}
